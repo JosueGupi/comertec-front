@@ -1,0 +1,7 @@
+{
+  "name": "comer-tec",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
