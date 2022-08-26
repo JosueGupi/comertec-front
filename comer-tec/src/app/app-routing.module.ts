@@ -5,6 +5,18 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'menu-admin',
+    loadChildren: () => import('./page/menu-admin/menu-admin.module').then( m => m.MenuAdminPageModule)
+  },
+  {
+    path: 'gestion-alimentos',
+    loadChildren: () => import('./page/gestion-alimentos/gestion-alimentos.module').then( m => m.GestionAlimentosPageModule)
+  },
+  {
+    path: 'gestion-clientes',
+    loadChildren: () => import('./page/gestion-clientes/gestion-clientes.module').then( m => m.GestionClientesPageModule)
   }
 ];
 @NgModule({
