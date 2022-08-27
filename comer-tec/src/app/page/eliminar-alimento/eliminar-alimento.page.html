@@ -1,0 +1,21 @@
+<ion-header>
+  
+</ion-header>
+
+<ion-content>
+  <center>
+    <p></p>
+    
+
+  <div [formGroup]="registerForm">
+    
+    <ion-input color="dark" expand="block" placeholder="Id del Producto" class="button" formControlName="IdComida" type="number" > </ion-input>
+    <p></p>
+    
+
+    <ion-button color="dark" expand="block" class="button" (click)="crear()">Eliminar</ion-button>
+  </div>
+  <ion-button color="dark" expand="block" class="exit-button" (click)="back()">Salir</ion-button>
+
+</center>
+</ion-content>

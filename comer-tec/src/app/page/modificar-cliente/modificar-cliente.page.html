@@ -1,0 +1,33 @@
+<ion-header>
+  
+</ion-header>
+
+<ion-content>
+  <center>
+    <p></p>
+    
+
+  <div [formGroup]="registerForm">
+    <ion-input color="dark" expand="block" placeholder="Nombre Cliente" class="button" formControlName="Nombre" type="text" > </ion-input>
+    <p></p>
+    <ion-input color="dark" expand="block" placeholder="Apellido 1" class="button" formControlName="Apellido1" > </ion-input>
+    <p></p>
+    <ion-input color="dark" expand="block" placeholder="Apellido 2" class="button" formControlName="Apellido2" > </ion-input>
+    <p></p>
+    <ion-input color="dark" expand="block" placeholder="Carnet" class="button" formControlName="Carnet" type="number" > </ion-input>
+    <p></p>
+    <ion-input color="dark" expand="block" placeholder="Cedula" class="button" formControlName="Cedula" type="number" > </ion-input>
+    <p></p>
+    <ion-input color="dark" expand="block" placeholder="Fecha Nacimiento" class="button" formControlName="Fecha" type="date" > </ion-input>
+    <p></p>
+    <ion-input color="dark" expand="block" placeholder="Correo Institucional" class="button" formControlName="Correo" > </ion-input>
+    <p></p>
+    <ion-input color="dark" expand="block" placeholder="Contraseña" class="button" formControlName="Password" > </ion-input>
+
+
+    <ion-button color="dark" expand="block" class="button" (click)="crear()">Modificar</ion-button>
+  </div>
+  <ion-button color="dark" expand="block" class="exit-button" (click)="back()">Salir</ion-button>
+
+</center>
+</ion-content>

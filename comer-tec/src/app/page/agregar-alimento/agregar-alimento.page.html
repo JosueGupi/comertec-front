@@ -1,0 +1,41 @@
+<ion-header>
+  
+</ion-header>
+
+<ion-content>
+  <center>
+    <p></p>
+    
+
+  <div [formGroup]="registerForm">
+    <ion-input color="dark" expand="block" placeholder="Nombre Alimento" class="button" formControlName="Nombre" > </ion-input>
+    <p></p>
+    <ion-input color="dark" expand="block" placeholder="Cantidad" class="button" formControlName="Cantidad" type="number" ></ion-input>
+    <p></p>
+    <ion-item  class="button" >
+      <ion-label >Tiempo </ion-label>
+      <ion-select placeholder="Select One" formControlName="TiempoAlimento" >
+        <ion-select-option value="1" >Desayuno</ion-select-option >
+        <ion-select-option value="2" >Almuerzo</ion-select-option>
+        <ion-select-option value="3" >Media Tarde</ion-select-option>
+        <ion-select-option value="4" >Cena</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <p></p>
+    <ion-input color="dark" expand="block" placeholder="Precio" class="button" formControlName="Precio" type="number" > </ion-input>
+    <p></p>
+    <ion-item  class="button" >
+      <ion-label >Tipo </ion-label>
+      <ion-select placeholder="Select One" formControlName="TipoAlimento" >
+        <ion-select-option value="1" >Plato Principal</ion-select-option >
+        <ion-select-option value="2" >Postre o Adicional</ion-select-option>
+        <ion-select-option value="3" >Bebida</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button color="dark" expand="block" class="button" (click)="crear()">Crear</ion-button>
+  </div>
+  <ion-button color="dark" expand="block" class="exit-button" (click)="back()">Salir</ion-button>
+
+</center>
+</ion-content>

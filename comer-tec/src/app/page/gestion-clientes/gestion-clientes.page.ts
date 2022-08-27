@@ -20,4 +20,14 @@ export class GestionClientesPage implements OnInit {
       window.location.reload();
     });
   }
+  modificarCliente() {
+    this.route.navigate(['/modificar-cliente']).then(() => {
+      window.location.reload();
+    });
+  }
+  eliminarCliente() {
+    this.route.navigate(['/eliminar-cliente']).then(() => {
+      window.location.reload();
+    });
+  }
 }
