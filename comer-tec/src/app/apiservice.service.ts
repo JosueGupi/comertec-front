@@ -12,7 +12,10 @@ import { Observable,Subject } from 'rxjs';
 
     constructor(private http: HttpClient){}
     
-    
+    crearAlimento(data: any): Observable<any> {
+      console.log(data);
+      return this.http.post('http://comertec.herokuapp.com/adminAlimentos/crearAlimento',data)
+    }
 
 
 }

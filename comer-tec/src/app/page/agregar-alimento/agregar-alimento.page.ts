@@ -33,7 +33,36 @@ export class AgregarAlimentoPage implements OnInit {
   }
 
   crear(){
-    console.log(this.registerForm.value)
+    
+    this.service.crearAlimento(this.registerForm.value).subscribe(async (data)=>{
+      if(data == true){
+        const alert = await this.alertController.create({
+          header: 'Creacion Correcta',
+          message: 'Datos insertados',
+          buttons: [
+            {
+              text: 'OK',
+              handler: (blah) => {
+                this.route.navigate(['/gestion-alimentos']);
+              }
+            }
+          ]
+        });
+        await alert.present();
+      }else{ 
+        const alert = await this.alertController.create({
+          header: 'Creacion Fallida',
+          message: 'Porfavor verifique los datos',
+          buttons: [
+            {
+              text: 'OK',
+            }
+          ]
+        });
+        await alert.present();
+      }
+    });
+    
   }
 
 }
