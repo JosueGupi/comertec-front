@@ -3,10 +3,17 @@
     font-size: 60px;
   }
 
-ion-content{
-    --background:null;
-    background-image:url('https://i.postimg.cc/G2CjDgJt/background.jpg');
+ion-content {
+  --background: null;
+  background: linear-gradient(
+    0deg,
+    rgba(200, 33, 102, 1) 0%,
+    rgba(25, 4, 13, 1) 98%,
+    rgba(22, 2, 11, 1) 100%
+  );
+  width: 100%;
 }
+  
 .button {
   background: #000000;
   
