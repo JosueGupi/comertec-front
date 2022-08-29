@@ -1,0 +1,35 @@
+<ion-header> </ion-header>
+
+<ion-content>
+  <center>
+    <ion-title size="large">Inicio de Sesión</ion-title>
+    <div [formGroup]="registerForm">
+      <ion-input
+        color="dark"
+        expand="block"
+        placeholder="Usuario"
+        class="input"
+        formControlName="User"
+      >
+      </ion-input>
+      <p></p>
+      <ion-input
+        color="dark"
+        expand="block"
+        placeholder="Contraseña"
+        class="input"
+        formControlName="Password"
+        type="password"
+      ></ion-input>
+      <p></p>
+      <ion-button color="dark" expand="block" class="button"
+        >Ingresar</ion-button
+      >     
+    </div>
+    <ion-button color="dark" expand="block" class="button"
+        >Crear Cuenta</ion-button
+      >
+      <ion-title size="small">Creado por</ion-title>
+    
+  </center>
+</ion-content>
