@@ -32,6 +32,12 @@ import { Observable,Subject } from 'rxjs';
       console.log(data);
       return this.http.post('http://comertec.herokuapp.com/adminClientes/eliminarCliente',data)
     }
+    pedidosCliente(): Observable<any> {
+      const data = this.http.get('http://comertec.herokuapp.com/adminClientes/obtenerHistorial');
+
+      return data
+
+    }
 
 
 }

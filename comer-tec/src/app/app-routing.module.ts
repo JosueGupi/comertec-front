@@ -41,6 +41,10 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./page/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'historial-cliente',
+    loadChildren: () => import('./page/historial-cliente/historial-cliente.module').then( m => m.HistorialClientePageModule)
   }
 
 ];
