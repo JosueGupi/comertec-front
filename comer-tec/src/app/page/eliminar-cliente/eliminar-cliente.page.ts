@@ -30,6 +30,34 @@ export class EliminarClientePage implements OnInit {
   
     crear(){
       console.log(this.registerForm.value)
+      this.service.eliminarCliente(this.registerForm.value).subscribe(async (data)=>{
+        if(data == true){
+          const alert = await this.alertController.create({
+            header: 'Eliminacion Correcta',
+            message: 'Datos eliminados',
+            buttons: [
+              {
+                text: 'OK',
+                handler: (blah) => {
+                  this.route.navigate(['/gestion-clientes']);
+                }
+              }
+            ]
+          });
+          await alert.present();
+        }else{ 
+          const alert = await this.alertController.create({
+            header: 'Eliminacion Fallida',
+            message: 'Porfavor verifique los datos',
+            buttons: [
+              {
+                text: 'OK',
+              }
+            ]
+          });
+          await alert.present();
+        }
+      });
     }
 
 }

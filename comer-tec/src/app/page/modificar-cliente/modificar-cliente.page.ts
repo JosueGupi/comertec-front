@@ -39,6 +39,34 @@ export class ModificarClientePage implements OnInit {
   
     crear(){
       console.log(this.registerForm.value)
+      this.service.actualizarCliente(this.registerForm.value).subscribe(async (data)=>{
+        if(data == true){
+          const alert = await this.alertController.create({
+            header: 'Actulizacion Correcta',
+            message: 'Datos modificados',
+            buttons: [
+              {
+                text: 'OK',
+                handler: (blah) => {
+                  this.route.navigate(['/gestion-clientes']);
+                }
+              }
+            ]
+          });
+          await alert.present();
+        }else{ 
+          const alert = await this.alertController.create({
+            header: 'Modificacion Fallida',
+            message: 'Porfavor verifique los datos',
+            buttons: [
+              {
+                text: 'OK',
+              }
+            ]
+          });
+          await alert.present();
+        }
+      });
     }
 
 }

@@ -31,6 +31,34 @@ export class EliminarAlimentoPage implements OnInit {
 
   crear(){
     console.log(this.registerForm.value)
+    this.service.eliminarAlimento(this.registerForm.value).subscribe(async (data)=>{
+      if(data == true){
+        const alert = await this.alertController.create({
+          header: 'Eliminacion Correcta',
+          message: 'Datos eliminados',
+          buttons: [
+            {
+              text: 'OK',
+              handler: (blah) => {
+                this.route.navigate(['/gestion-alimentos']);
+              }
+            }
+          ]
+        });
+        await alert.present();
+      }else{ 
+        const alert = await this.alertController.create({
+          header: 'Eliminacion Fallida',
+          message: 'Porfavor verifique los datos',
+          buttons: [
+            {
+              text: 'OK',
+            }
+          ]
+        });
+        await alert.present();
+      }
+    });
   }
 
 }

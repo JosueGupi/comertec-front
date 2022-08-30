@@ -16,6 +16,22 @@ import { Observable,Subject } from 'rxjs';
       console.log(data);
       return this.http.post('http://comertec.herokuapp.com/adminAlimentos/crearAlimento',data)
     }
+    eliminarAlimento(data: any): Observable<any> {
+      console.log(data);
+      return this.http.post('http://comertec.herokuapp.com/adminAlimentos/eliminarAlimento',data)
+    }
+    actualizarAlimento(data: any): Observable<any> {
+      console.log(data);
+      return this.http.post('http://comertec.herokuapp.com/adminAlimentos/actualizarAlimento',data)
+    }
+    actualizarCliente(data: any): Observable<any> {
+      console.log(data);
+      return this.http.post('http://comertec.herokuapp.com/adminClientes/actualizarCliente',data)
+    }
+    eliminarCliente(data: any): Observable<any> {
+      console.log(data);
+      return this.http.post('http://comertec.herokuapp.com/adminClientes/eliminarCliente',data)
+    }
 
 
 }
