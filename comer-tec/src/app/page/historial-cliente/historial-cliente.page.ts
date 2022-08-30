@@ -11,9 +11,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class HistorialClientePage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: Router,
+    private service: ApiserviceService,
+    public alertController: AlertController,) { }
 
   ngOnInit() {
   }
-
+  back() {
+    this.route.navigate(['/gestion-clientes']).then(() => {
+      window.location.reload();
+    });
+  }
 }
