@@ -45,6 +45,10 @@ const routes: Routes = [
   {
     path: 'historial-cliente',
     loadChildren: () => import('./page/historial-cliente/historial-cliente.module').then( m => m.HistorialClientePageModule)
+  },
+  {
+    path: 'gestionar-pedidos',
+    loadChildren: () => import('./page/gestionar-pedidos/gestionar-pedidos.module').then( m => m.GestionarPedidosPageModule)
   }
 
 ];
