@@ -21,17 +21,17 @@ export class GestionarPedidosPage implements OnInit {
     });
   }
   modificarPedido() {
-    this.route.navigate(['/modificar-Pedido']).then(() => {
+    this.route.navigate(['/modificar-pedido']).then(() => {
       window.location.reload();
     });
   }
   eliminarPedido() {
-    this.route.navigate(['/eliminar-Pedido']).then(() => {
+    this.route.navigate(['/eliminar-pedido']).then(() => {
       window.location.reload();
     });
   }
   historialPedido() {
-    this.route.navigate(['/historial-Pedido']).then(() => {
+    this.route.navigate(['/historial-pedido']).then(() => {
       window.location.reload();
     });
 }

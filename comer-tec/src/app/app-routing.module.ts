@@ -49,6 +49,18 @@ const routes: Routes = [
   {
     path: 'gestionar-pedidos',
     loadChildren: () => import('./page/gestionar-pedidos/gestionar-pedidos.module').then( m => m.GestionarPedidosPageModule)
+  },
+  {
+    path: 'modificar-pedido',
+    loadChildren: () => import('./page/modificar-pedido/modificar-pedido.module').then( m => m.ModificarPedidoPageModule)
+  },
+  {
+    path: 'eliminar-pedido',
+    loadChildren: () => import('./page/eliminar-pedido/eliminar-pedido.module').then( m => m.EliminarPedidoPageModule)
+  },
+  {
+    path: 'historial-pedido',
+    loadChildren: () => import('./page/historial-pedido/historial-pedido.module').then( m => m.HistorialPedidoPageModule)
   }
 
 ];
