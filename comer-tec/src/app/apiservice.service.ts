@@ -38,6 +38,14 @@ import { Observable,Subject } from 'rxjs';
       return data
 
     }
+    getAlimentos(): Observable<any> {
+      const data = this.http.get('http://comertec.herokuapp.com/adminAlimentos/obtenerAlimentos');
 
+      return data
+
+    }
+    modificarTiempo(data: any): Observable<any> {
+      return this.http.post('http://comertec.herokuapp.com/adminAlimentos/modificarTiempo',data);
+    }
 
 }

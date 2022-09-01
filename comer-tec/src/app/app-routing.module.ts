@@ -57,6 +57,10 @@ const routes: Routes = [
   {
     path: 'eliminar-pedido',
     loadChildren: () => import('./page/eliminar-pedido/eliminar-pedido.module').then( m => m.EliminarPedidoPageModule)
+  },
+  {
+    path: 'gestion-tiempos',
+    loadChildren: () => import('./page/gestion-tiempos/gestion-tiempos.module').then( m => m.GestionTiemposPageModule)
   }
 
 ];

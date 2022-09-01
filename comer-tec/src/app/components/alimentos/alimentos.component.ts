@@ -18,7 +18,6 @@ export class AlimentosComponent implements OnInit {
   }
   getPedidos(){
     this.service.pedidosCliente().subscribe((data: any) => {
-      console.log(data);
       this.pedidos = data;
     })
   }

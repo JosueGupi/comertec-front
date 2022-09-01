@@ -28,7 +28,7 @@ export class ModificarPedidoPage implements OnInit {
       });
     }
     back() {
-      this.route.navigate(['/gestion-alimentos']).then(() => {
+      this.route.navigate(['/gestionar-pedidos']).then(() => {
         window.location.reload();
       });
     }

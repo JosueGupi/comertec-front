@@ -36,4 +36,9 @@ export class MenuAdminPage implements OnInit {
       window.location.reload();
     });
   }
+  gestionTiempos() {
+    this.route.navigate(['/gestion-tiempos']).then(() => {
+      window.location.reload();
+    });
+  }
 }
