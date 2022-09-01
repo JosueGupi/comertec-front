@@ -1,9 +1,26 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>modificar-pedido</ion-title>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <center>
+    <p></p>
+    
 
+  <div [formGroup]="registerForm">
+    <ion-input color="dark" expand="block" placeholder="ID Pedido" class="button" formControlName="IdPedido" type="text" > </ion-input>
+    <p></p>
+    <ion-input color="dark" expand="block" placeholder="ID Persona" class="button" formControlName="IdPersona" > </ion-input>
+    <p></p>
+    <ion-input color="dark" expand="block" placeholder="ID Pedido x Alimento" class="button" formControlName="IdPedidoxAlimento" > </ion-input>
+    <p></p>
+    <ion-input color="dark" expand="block" placeholder="Fecha" class="button" formControlName="Fecha" type="date" > </ion-input>
+    <p></p>
+    
+
+
+    <ion-button color="dark" expand="block" class="button" (click)="modificar()">Modificar</ion-button>
+  </div>
+  <ion-button color="dark" expand="block" class="exit-button" (click)="back()">Salir</ion-button>
+
+</center>
 </ion-content>

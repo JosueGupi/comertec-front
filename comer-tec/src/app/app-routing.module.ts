@@ -57,10 +57,6 @@ const routes: Routes = [
   {
     path: 'eliminar-pedido',
     loadChildren: () => import('./page/eliminar-pedido/eliminar-pedido.module').then( m => m.EliminarPedidoPageModule)
-  },
-  {
-    path: 'historial-pedido',
-    loadChildren: () => import('./page/historial-pedido/historial-pedido.module').then( m => m.HistorialPedidoPageModule)
   }
 
 ];

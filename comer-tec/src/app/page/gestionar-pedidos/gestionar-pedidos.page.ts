@@ -30,9 +30,4 @@ export class GestionarPedidosPage implements OnInit {
       window.location.reload();
     });
   }
-  historialPedido() {
-    this.route.navigate(['/historial-pedido']).then(() => {
-      window.location.reload();
-    });
-}
 }
