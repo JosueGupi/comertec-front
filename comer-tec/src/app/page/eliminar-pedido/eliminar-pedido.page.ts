@@ -28,7 +28,7 @@ export class EliminarPedidoPage implements OnInit {
       });
     }
   
-    /*crear(){
+    eliminar(){
       console.log(this.registerForm.value)
       this.service.eliminarPedido(this.registerForm.value).subscribe(async (data)=>{
         if(data == true){
@@ -58,6 +58,6 @@ export class EliminarPedidoPage implements OnInit {
           await alert.present();
         }
       });
-    }*/     //Implementar
+    }
 
 }

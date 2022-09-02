@@ -33,6 +33,36 @@ export class ModificarPedidoPage implements OnInit {
       });
     }
 
-    //Implementar modificar()
+    modificar(){
+      console.log(this.registerForm.value)
+      this.service.actualizarPedido(this.registerForm.value).subscribe(async (data)=>{
+        if(data == true){
+          const alert = await this.alertController.create({
+            header: 'Actulizacion Correcta',
+            message: 'Datos modificados',
+            buttons: [
+              {
+                text: 'OK',
+                handler: (blah) => {
+                  this.route.navigate(['/gestionar-pedidos']);
+                }
+              }
+            ]
+          });
+          await alert.present();
+        }else{ 
+          const alert = await this.alertController.create({
+            header: 'Modificacion Fallida',
+            message: 'Porfavor verifique los datos',
+            buttons: [
+              {
+                text: 'OK',
+              }
+            ]
+          });
+          await alert.present();
+        }
+      });
+    }
 
 }

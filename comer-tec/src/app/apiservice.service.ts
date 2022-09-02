@@ -36,8 +36,8 @@ import { Observable,Subject } from 'rxjs';
       const data = this.http.get('http://comertec.herokuapp.com/adminClientes/obtenerHistorial');
 
       return data
-
     }
+<<<<<<< Updated upstream
     getAlimentos(): Observable<any> {
       const data = this.http.get('http://comertec.herokuapp.com/adminAlimentos/obtenerAlimentos');
 
@@ -46,6 +46,15 @@ import { Observable,Subject } from 'rxjs';
     }
     modificarTiempo(data: any): Observable<any> {
       return this.http.post('http://comertec.herokuapp.com/adminAlimentos/modificarTiempo',data);
+=======
+    eliminarPedido(data: any): Observable<any> {
+      console.log(data);
+      return this.http.post('http://comertec.herokuapp.com/adminPedidos/eliminarPedido',data)
+    }
+    actualizarPedido(data: any): Observable<any> {
+      console.log(data);
+      return this.http.post('http://comertec.herokuapp.com/adminPedidos/actualizarPedido',data)
+>>>>>>> Stashed changes
     }
 
 }
