@@ -1,0 +1,121 @@
+<ion-header> </ion-header>
+
+<ion-content>
+  <center>
+    <ion-title size="large">CREAR CUENTA</ion-title>
+    <div [formGroup]="registerForm">
+      <ion-label clsss="label">
+        Número de cédula
+      </ion-label>
+      <ion-input
+        color="dark"
+        expand="block"
+        placeholder="Ingrese su número de cédula"
+        class="input"
+        formControlName="Id"
+      >
+      </ion-input>
+      <p></p>
+      <ion-label clsss="label">
+        Número de carnet
+      </ion-label>
+      <ion-input
+        color="dark"
+        expand="block"
+        placeholder="Ingrese su número de carnet"
+        class="input"
+        formControlName="StudentCard"
+      >
+      </ion-input>
+      <p></p>
+      <ion-label clsss="label">
+        Nombre
+      </ion-label>
+      <ion-input
+        color="dark"
+        expand="block"
+        placeholder="Ingrese su nombre"
+        class="input"
+        formControlName="Name"
+      >
+      </ion-input>
+      <p></p>
+      <ion-label clsss="label">
+        Primer Apellido
+      </ion-label>
+      <ion-input
+        color="dark"
+        expand="block"
+        placeholder="Ingrese su primer apellido"
+        class="input"
+        formControlName="FirstSurname"
+      >
+      </ion-input>
+      <p></p>
+      <ion-label clsss="label">
+        Segundo Apellido
+      </ion-label>
+      <ion-input
+        color="dark"
+        expand="block"
+        placeholder="Ingrese su segundo apellido"
+        class="input"
+        formControlName="SecondSurname"
+      >
+      </ion-input>
+      <p></p>
+      <ion-label clsss="label">
+        Edad
+      </ion-label>
+      <ion-input
+        color="dark"
+        expand="block"
+        placeholder="Ingrese su edad"
+        class="input"
+        formControlName="Age"
+      >
+      </ion-input>
+      <p></p>
+      <ion-label clsss="label">
+        Fecha de Nacimiento
+      </ion-label>
+      <ion-input
+        color="dark"
+        expand="block"
+        placeholder="dd / mm / yy"
+        class="input"
+        formControlName="DateBirth"
+      >
+      </ion-input>
+      <p></p>
+      <ion-label clsss="label">
+        Correo Electrónico 
+      </ion-label>
+      <ion-input
+        color="dark"
+        expand="block"
+        placeholder="Ingrese su correo electrónico"
+        class="input"
+        formControlName="Email"
+      >
+      </ion-input>
+      <p></p>
+      <ion-label clsss="label">
+        Contraseña Institucional
+      </ion-label>
+      <ion-input
+        color="dark"
+        expand="block"
+        placeholder="Ingrese su correo institucional"
+        class="input"
+        formControlName="TecPassword"
+      >
+      </ion-input>
+      <p></p>
+      <p></p>
+      <ion-button color="dark" expand="block" class="button"
+        >Ingresar</ion-button
+      >
+    </div>
+  </center>
+</ion-content>

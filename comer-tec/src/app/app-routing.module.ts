@@ -44,7 +44,7 @@ const routes: Routes = [
   },
   {
     path: 'crear-cuenta',
-    loadChildren: () => import('./crear-cuenta/crear-cuenta.module').then( m => m.CrearCuentaPageModule)
+    loadChildren: () => import('./page/crear-cuenta/crear-cuenta.module').then( m => m.CrearCuentaPageModule)
   },
   {
     path: 'historial-cliente',
