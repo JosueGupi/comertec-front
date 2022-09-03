@@ -30,4 +30,9 @@ export class GestionClientesPage implements OnInit {
       window.location.reload();
     });
   }
+  historialCliente() {
+    this.route.navigate(['/historial-cliente']).then(() => {
+      window.location.reload();
+    });
+  }
 }

@@ -1,5 +1,6 @@
 .title {
     color: #FFFFFF;
+    font-size: 60px;
   }
 
 ion-content {
@@ -12,7 +13,7 @@ ion-content {
   );
   width: 100%;
 }
-  
+    
 .button {
   background: #000000;
   
@@ -26,16 +27,15 @@ ion-content {
 
   width: 298px;
   height: 54px;
-  left: 31px;
-  top: 706px;
+  
   color: #FFFFFF;
   
   border-radius: 10px;
 }
 .exit-button {
-  position: absolute;
+  
 top: 700px;
-
+color: #FFFFFF;
 background: #000000;
 border-radius: 10px;
 }

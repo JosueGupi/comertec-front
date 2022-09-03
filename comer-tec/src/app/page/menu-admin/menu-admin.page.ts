@@ -31,4 +31,14 @@ export class MenuAdminPage implements OnInit {
       window.location.reload();
     });
   }
+  gestionPedidos() {
+    this.route.navigate(['/gestionar-pedidos']).then(() => {
+      window.location.reload();
+    });
+  }
+  gestionTiempos() {
+    this.route.navigate(['/gestion-tiempos']).then(() => {
+      window.location.reload();
+    });
+  }
 }

@@ -3,13 +3,14 @@ import { Router } from '@angular/router';
 import { ApiserviceService } from 'src/app/apiservice.service';
 import { AlertController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { GestionAlimentosPage } from '../gestion-alimentos/gestion-alimentos.page';
 @Component({
-  selector: 'app-eliminar-alimento',
-  templateUrl: './eliminar-alimento.page.html',
-  styleUrls: ['./eliminar-alimento.page.scss'],
+  selector: 'app-gestion-tiempos',
+  templateUrl: './gestion-tiempos.page.html',
+  styleUrls: ['./gestion-tiempos.page.scss'],
 })
-export class EliminarAlimentoPage implements OnInit {
-
+export class GestionTiemposPage implements OnInit {
+  alimentos = []
   registerForm: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
@@ -17,30 +18,31 @@ export class EliminarAlimentoPage implements OnInit {
     private service: ApiserviceService,
     public alertController: AlertController,) { }
 
-  ngOnInit() {
-    this.registerForm = this.formBuilder.group({
-      IdComida: ['', Validators.required],
-      
-    });
-  }
+    ngOnInit() {
+      this.registerForm = this.formBuilder.group({
+        IdAlimento: ['', Validators.required],
+        TiempoAlimento: ['', Validators.required],
+      });
+      this.getAlimentos();
+    }
   back() {
-    this.route.navigate(['/gestion-alimentos']).then(() => {
+    this.route.navigate(['/menu-admin']).then(() => {
       window.location.reload();
     });
   }
-
   crear(){
-    console.log(this.registerForm.value)
-    this.service.eliminarAlimento(this.registerForm.value).subscribe(async (data)=>{
+    console.log(this.registerForm.value);
+    
+    this.service.modificarTiempo(this.registerForm.value).subscribe(async (data)=>{
       if(data == true){
         const alert = await this.alertController.create({
-          header: 'Eliminacion Correcta',
-          message: 'Datos eliminados',
+          header: 'Alimento Modificado',
+          message: 'Tiempo Cambiado',
           buttons: [
             {
               text: 'OK',
               handler: (blah) => {
-                this.route.navigate(['/gestion-alimentos']);
+                this.route.navigate(['/menu-admin']);
               }
             }
           ]
@@ -48,7 +50,7 @@ export class EliminarAlimentoPage implements OnInit {
         await alert.present();
       }else{ 
         const alert = await this.alertController.create({
-          header: 'Eliminacion Fallida',
+          header: 'Modificacion Fallida',
           message: 'Porfavor verifique los datos',
           buttons: [
             {
@@ -59,6 +61,12 @@ export class EliminarAlimentoPage implements OnInit {
         await alert.present();
       }
     });
+    
   }
-
+  getAlimentos(){
+    this.service.getAlimentos().subscribe((data: any) => {
+      this.alimentos = data;
+    })
+  }
 }
+

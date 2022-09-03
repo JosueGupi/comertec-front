@@ -3,12 +3,13 @@ import { Router } from '@angular/router';
 import { ApiserviceService } from 'src/app/apiservice.service';
 import { AlertController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 @Component({
-  selector: 'app-eliminar-cliente',
-  templateUrl: './eliminar-cliente.page.html',
-  styleUrls: ['./eliminar-cliente.page.scss'],
+  selector: 'app-modificar-pedido',
+  templateUrl: './modificar-pedido.page.html',
+  styleUrls: ['./modificar-pedido.page.scss'],
 })
-export class EliminarClientePage implements OnInit {
+export class ModificarPedidoPage implements OnInit {
 
   registerForm: FormGroup;
   constructor(
@@ -16,30 +17,34 @@ export class EliminarClientePage implements OnInit {
     private route: Router,
     private service: ApiserviceService,
     public alertController: AlertController,) { }
+
     ngOnInit() {
       this.registerForm = this.formBuilder.group({
-        IdCliente: ['', Validators.required],
+        IdPedido: ['', Validators.required],
+        IdPersona: ['', Validators.required],
+        IdPedidoxAlimento: ['', Validators.required],
+        Fecha: ['', Validators.required],
         
       });
     }
     back() {
-      this.route.navigate(['/gestion-alimentos']).then(() => {
+      this.route.navigate(['/gestionar-pedidos']).then(() => {
         window.location.reload();
       });
     }
-  
-    crear(){
+
+    modificar(){
       console.log(this.registerForm.value)
-      this.service.eliminarCliente(this.registerForm.value).subscribe(async (data)=>{
+      this.service.actualizarPedido(this.registerForm.value).subscribe(async (data)=>{
         if(data == true){
           const alert = await this.alertController.create({
-            header: 'Eliminacion Correcta',
-            message: 'Datos eliminados',
+            header: 'Actulizacion Correcta',
+            message: 'Datos modificados',
             buttons: [
               {
                 text: 'OK',
                 handler: (blah) => {
-                  this.route.navigate(['/gestion-clientes']);
+                  this.route.navigate(['/gestionar-pedidos']);
                 }
               }
             ]
@@ -47,7 +52,7 @@ export class EliminarClientePage implements OnInit {
           await alert.present();
         }else{ 
           const alert = await this.alertController.create({
-            header: 'Eliminacion Fallida',
+            header: 'Modificacion Fallida',
             message: 'Porfavor verifique los datos',
             buttons: [
               {

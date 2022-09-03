@@ -37,6 +37,34 @@ export class ModificarAlimentoPage implements OnInit {
   
     crear(){
       console.log(this.registerForm.value)
+      this.service.actualizarAlimento(this.registerForm.value).subscribe(async (data)=>{
+        if(data == true){
+          const alert = await this.alertController.create({
+            header: 'Modificacion Correcta',
+            message: 'Datos modificados',
+            buttons: [
+              {
+                text: 'OK',
+                handler: (blah) => {
+                  this.route.navigate(['/gestion-alimentos']);
+                }
+              }
+            ]
+          });
+          await alert.present();
+        }else{ 
+          const alert = await this.alertController.create({
+            header: 'Modificacion Fallida',
+            message: 'Porfavor verifique los datos',
+            buttons: [
+              {
+                text: 'OK',
+              }
+            ]
+          });
+          await alert.present();
+        }
+      });
     }
 
 }

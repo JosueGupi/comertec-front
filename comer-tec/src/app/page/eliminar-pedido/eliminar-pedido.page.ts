@@ -4,11 +4,11 @@ import { ApiserviceService } from 'src/app/apiservice.service';
 import { AlertController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
-  selector: 'app-eliminar-cliente',
-  templateUrl: './eliminar-cliente.page.html',
-  styleUrls: ['./eliminar-cliente.page.scss'],
+  selector: 'app-eliminar-pedido',
+  templateUrl: './eliminar-pedido.page.html',
+  styleUrls: ['./eliminar-pedido.page.scss'],
 })
-export class EliminarClientePage implements OnInit {
+export class EliminarPedidoPage implements OnInit {
 
   registerForm: FormGroup;
   constructor(
@@ -18,19 +18,19 @@ export class EliminarClientePage implements OnInit {
     public alertController: AlertController,) { }
     ngOnInit() {
       this.registerForm = this.formBuilder.group({
-        IdCliente: ['', Validators.required],
+        IdPedido: ['', Validators.required],
         
       });
     }
     back() {
-      this.route.navigate(['/gestion-alimentos']).then(() => {
+      this.route.navigate(['/gestionar-pedidos']).then(() => {
         window.location.reload();
       });
     }
   
-    crear(){
+    eliminar(){
       console.log(this.registerForm.value)
-      this.service.eliminarCliente(this.registerForm.value).subscribe(async (data)=>{
+      this.service.eliminarPedido(this.registerForm.value).subscribe(async (data)=>{
         if(data == true){
           const alert = await this.alertController.create({
             header: 'Eliminacion Correcta',
@@ -39,7 +39,7 @@ export class EliminarClientePage implements OnInit {
               {
                 text: 'OK',
                 handler: (blah) => {
-                  this.route.navigate(['/gestion-clientes']);
+                  this.route.navigate(['/gestionar-pedidos']);
                 }
               }
             ]

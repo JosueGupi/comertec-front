@@ -41,9 +41,30 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./page/login/login.module').then( m => m.LoginPageModule)
-  },  {
+  },
+  {
     path: 'crear-cuenta',
     loadChildren: () => import('./crear-cuenta/crear-cuenta.module').then( m => m.CrearCuentaPageModule)
+  },
+  {
+    path: 'historial-cliente',
+    loadChildren: () => import('./page/historial-cliente/historial-cliente.module').then( m => m.HistorialClientePageModule)
+  },
+  {
+    path: 'gestionar-pedidos',
+    loadChildren: () => import('./page/gestionar-pedidos/gestionar-pedidos.module').then( m => m.GestionarPedidosPageModule)
+  },
+  {
+    path: 'modificar-pedido',
+    loadChildren: () => import('./page/modificar-pedido/modificar-pedido.module').then( m => m.ModificarPedidoPageModule)
+  },
+  {
+    path: 'eliminar-pedido',
+    loadChildren: () => import('./page/eliminar-pedido/eliminar-pedido.module').then( m => m.EliminarPedidoPageModule)
+  },
+  {
+    path: 'gestion-tiempos',
+    loadChildren: () => import('./page/gestion-tiempos/gestion-tiempos.module').then( m => m.GestionTiemposPageModule)
   }
 
 

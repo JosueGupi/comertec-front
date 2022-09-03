@@ -1,0 +1,36 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content>
+  <center>
+    
+
+
+    <div [formGroup]="registerForm">
+      <p></p>
+      <ion-item class="button">
+        <ion-label>Tiempo </ion-label>
+        <ion-select placeholder="Select One" formControlName="TiempoAlimento">
+          <ion-select-option value="1">Desayuno</ion-select-option>
+          <ion-select-option value="2">Almuerzo</ion-select-option>
+          <ion-select-option value="3">Media Tarde</ion-select-option>
+          <ion-select-option value="4">Cena</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <p></p>
+
+      <ion-item class="button">
+        <ion-label>Tipo </ion-label>
+        <ion-select placeholder="Select One" formControlName="IdAlimento" >
+          <ion-select-option *ngFor="let alimento of alimentos" value={{alimento.idAlimento}}>{{alimento.Nombre}}</ion-select-option>
+
+        </ion-select>
+      </ion-item>
+      <p></p>
+      <ion-button color="dark" expand="block" class="button" (click)="crear()">Guardar</ion-button>
+    </div>
+    <ion-button color="dark" expand="block" class="button" (click)="back()">Menu Principal</ion-button>
+
+  </center>
+</ion-content>
