@@ -41,7 +41,11 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./page/login/login.module').then( m => m.LoginPageModule)
+  },  {
+    path: 'crear-cuenta',
+    loadChildren: () => import('./crear-cuenta/crear-cuenta.module').then( m => m.CrearCuentaPageModule)
   }
+
 
 ];
 @NgModule({
