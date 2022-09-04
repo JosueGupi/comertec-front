@@ -24,4 +24,15 @@ export class LoginPage implements OnInit {
       Password: ['', Validators.required],
     });
   }
+  crearCuenta() {
+    this.route.navigate(['/crear-cuenta']).then(() => {
+      //lógica inicio de sesión
+      window.location.reload();
+    });
+  }
+  ingresar() {
+    this.route.navigate(['/inicio']).then(() => {
+      window.location.reload();
+    });
+  }
 }

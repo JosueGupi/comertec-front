@@ -1,6 +1,9 @@
 <ion-header> </ion-header>
 
 <ion-content>
+  <ion-button color="dark" expand="block" class="button" (click)="back()">
+    <ion-icon name="arrow-back" class="icon"></ion-icon>
+  </ion-button>
   <center>
     <ion-title size="large">CREAR CUENTA</ion-title>
     <div [formGroup]="registerForm">

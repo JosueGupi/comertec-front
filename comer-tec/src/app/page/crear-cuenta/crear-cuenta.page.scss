@@ -43,13 +43,12 @@ ion-content {
   }
 
   .button {
-    background-color: #000000;
+    background-color: null;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     width: 180px;
     height: 54px;
-    color: #ffffff;
     margin-top: 40px;
     border-radius: 10px;
   }
@@ -60,4 +59,11 @@ ion-content {
     background-color: #000000;
     border-radius: 10px;
   }
+
+  .icon {
+    width: 35px;
+    height: 35px;
+    color: rgb(14, 13, 14);
+  }
+  
   

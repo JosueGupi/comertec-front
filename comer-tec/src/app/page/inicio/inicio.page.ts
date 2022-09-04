@@ -24,5 +24,15 @@ export class InicioPage implements OnInit {
       Filter: ['', Validators.required],
     });
   }
+  back() {
+    this.route.navigate(['/']).then(() => {
+      window.location.reload();
+    });
+  }
+  carrito() {
+    this.route.navigate(['/carrito']).then(() => {
+      window.location.reload();
+    });
+  }
 
 }

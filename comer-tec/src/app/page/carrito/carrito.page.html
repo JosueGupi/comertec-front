@@ -1,7 +1,7 @@
 <ion-header> </ion-header>
 
 <ion-content>
-  <ion-button fill="clear">
+  <ion-button fill="clear" (click)="inicio()">
     <ion-icon name="home" class="icon"></ion-icon>
   </ion-button>
   <center>
@@ -31,7 +31,7 @@
     </div>
     <ion-title size="small" slot="end">TOTAL ₡</ion-title>
     <div class="ion-btn-content">
-      <ion-button color="dark" expand="block" class="button">
+      <ion-button color="dark" expand="block" class="button" (click)="comprar()">
         CONFIRMAR COMPRA
       </ion-button>
     </div>

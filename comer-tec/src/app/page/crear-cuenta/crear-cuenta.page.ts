@@ -31,4 +31,9 @@ export class CrearCuentaPage implements OnInit {
       TecPassword: ['', Validators.required],
     });
   }
+  back() {
+    this.route.navigate(['/']).then(() => {
+      window.location.reload();
+    });
+  }
 }
