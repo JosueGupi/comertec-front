@@ -65,7 +65,16 @@ const routes: Routes = [
   {
     path: 'gestion-tiempos',
     loadChildren: () => import('./page/gestion-tiempos/gestion-tiempos.module').then( m => m.GestionTiemposPageModule)
-  }
+  },
+  {
+    path: 'inicio',
+    loadChildren: () => import('./page/inicio/inicio.module').then( m => m.InicioPageModule)
+  },
+  {
+    path: 'carrito',
+    loadChildren: () => import('./page/carrito/carrito.module').then( m => m.CarritoPageModule)
+  },
+
 
 
 ];
