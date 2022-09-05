@@ -31,8 +31,36 @@ export class LoginPage implements OnInit {
     });
   }
   ingresar() {
-    this.route.navigate(['/inicio']).then(() => {
-      window.location.reload();
+    this.service.iniciarSesion(this.registerForm.value).subscribe(async (data)=>{
+      if(data == true){
+        const alert = await this.alertController.create({
+          header: 'Creacion Correcta',
+          message: 'Datos insertados',
+          buttons: [
+            {
+              text: 'OK',
+              handler: (blah) => {
+                this.route.navigate(['/inicio']);
+              }
+            }
+          ]
+        });
+        await alert.present();
+      }else{ 
+        const alert = await this.alertController.create({
+          header: 'Creacion Fallida',
+          message: 'Porfavor verifique los datos',
+          buttons: [
+            {
+              text: 'OK',
+            }
+          ]
+        });
+        await alert.present();
+      }
     });
+    /* this.route.navigate(['/inicio']).then(() => {
+      window.location.reload();
+    }); */
   }
 }
