@@ -70,22 +70,22 @@ import { Observable,Subject } from 'rxjs';
     }    
     insertCarrito(data: any): Observable<any> {
       console.log("Insertando en carrito...", data);
-      return this.http.post('http://comertec.herokuapp.com/client/insertShoppingCart', data)
+      return this.http.post('https://comertec.herokuapp.com/client/insertShoppingCart', data)
 
     }
     deleteCarrito(data: any): Observable<any> {
       console.log("Eliminando en carrito...", data);
-      return this.http.post('http://comertec.herokuapp.com/client/deleteShoppingCart', data)
+      return this.http.post('https://comertec.herokuapp.com/client/deleteShoppingCart', data)
     }
     obtenerCarrito(data: any): Observable<any> {
       console.log("Obteniendo carrito...", data);
       try {
-        const response = this.http.get('http://comertec.herokuapp.com/client/getShoppingCart', data)
+        const response = this.http.get('https://comertec.herokuapp.com/client/getShoppingCart', data)
         console.log('respuesta:', response)
       } catch (error) {
         console.log('ERROR!!!!', error)
       }
-      return this.http.get('http://comertec.herokuapp.com/client/getShoppingCart', data)
+      return this.http.get('https://comertec.herokuapp.com/client/getShoppingCart', data)
     }    
 
     setUser(data: any) {
