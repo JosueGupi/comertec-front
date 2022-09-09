@@ -21,7 +21,6 @@ export class LoginPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem('user'));
     this.registerForm = this.formBuilder.group({
       User: ['', Validators.required],
       Password: ['', Validators.required],
@@ -37,7 +36,6 @@ export class LoginPage implements OnInit {
       .iniciarSesion(this.registerForm.value)
       .subscribe(async (data) => {
         if (data.length == 0) {
-          console.log('data login: ', data);
           const alert = await this.alertController.create({
             header: 'Creacion Fallida',
             message: 'Porfavor verifique los datos',
@@ -49,18 +47,8 @@ export class LoginPage implements OnInit {
           });
           await alert.present();
         } else {
-          console.log('data login: ', data);
-          if (data[0].Admin == 0){
-            this.service.obtenerCatalogo().subscribe(async (response) => {
-              this.catalog = response;
-              console.log('data catalog:', this.catalog)
-            });
-            
-            let navigationExtras = {
-                queryParams: {
-                  User: JSON.stringify(data[0].User)
-                }
-              };
+          localStorage.setItem('user', data[0].idPersona);
+          if (data[0].Admin == 0) {
             const alert = await this.alertController.create({
               header: 'Inicio de Sesión Correcto',
               message: 'Bienvenid@',
@@ -68,17 +56,13 @@ export class LoginPage implements OnInit {
                 {
                   text: 'OK',
                   handler: (blah) => {
-                    this.route.navigate(['/inicio', {user: 2222}]);
+                    this.route.navigate(['/inicio']);
                   },
                 },
               ],
             });
             await alert.present();
           } else {
-            this.service.obtenerCatalogo().subscribe(async (response) => {
-              this.catalog = response;
-              console.log('data catalog:', this.catalog)
-            });
             const alert = await this.alertController.create({
               header: 'Inicio de Sesión Correcto',
               message: 'Cuenta Administrativa',
@@ -86,14 +70,13 @@ export class LoginPage implements OnInit {
                 {
                   text: 'OK',
                   handler: (blah) => {
-                    this.route.navigate(['/menu-admin', this.catalog]);
+                    this.route.navigate(['/menu-admin']);
                   },
                 },
               ],
             });
-            await alert.present();            
+            await alert.present();
           }
-          
         }
       });
   }

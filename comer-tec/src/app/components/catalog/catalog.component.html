@@ -1,0 +1,57 @@
+<div class="container">
+  <p>catalog works!</p>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          name="filterCatalog"
+          placeholder="Buscar..."
+          [(ngModel)]="filterCatalog"
+        />
+        <p></p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table table-striped table-dark">
+        <thead>
+          <tr>
+            <!-- <th>ID</th> -->
+            <th>Alimento</th>
+            <!-- <th>Cantidad</th> -->
+            <th>Tiempo</th>
+            <th>Precio</th>
+            <th>Tipo</th>
+            <th>Comprar</th>
+            <th>Cantidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let alimento of catalog | filter: filterCatalog">
+            <!-- <td>{{alimento.idAlimento}}</td> -->
+            <td>{{ alimento.Alimento }}</td>
+            <!--  <td>{{alimento.Cantidad}}</td> -->
+            <td>{{ alimento.NombreTiempo }}</td>
+            <td>{{ alimento.Precio }}</td>
+            <td>{{ alimento.Tipo }}</td>
+            <td>
+              <ion-button
+                fill="clear"
+                (click)="insertCarrito(alimento.idAlimento)"
+              >
+                <ion-icon name="add-circle" class="icon"></ion-icon>
+              </ion-button>
+            </td>
+            <td>
+              <input type="number" name="qty" [(ngModel)]="qty" />
+            </td>
+          </tr>
+          <p></p>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
