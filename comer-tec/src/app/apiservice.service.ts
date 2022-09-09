@@ -14,57 +14,57 @@ import { Observable,Subject } from 'rxjs';
     
     crearAlimento(data: any): Observable<any> {
       console.log(data);
-      return this.http.post('http://comertec.herokuapp.com/adminAlimentos/crearAlimento',data)
+      return this.http.post('https://comertec.herokuapp.com/adminAlimentos/crearAlimento',data)
     }
     eliminarAlimento(data: any): Observable<any> {
       console.log(data);
-      return this.http.post('http://comertec.herokuapp.com/adminAlimentos/eliminarAlimento',data)
+      return this.http.post('https://comertec.herokuapp.com/adminAlimentos/eliminarAlimento',data)
     }
     actualizarAlimento(data: any): Observable<any> {
       console.log(data);
-      return this.http.post('http://comertec.herokuapp.com/adminAlimentos/actualizarAlimento',data)
+      return this.http.post('https://comertec.herokuapp.com/adminAlimentos/actualizarAlimento',data)
     }
     actualizarCliente(data: any): Observable<any> {
       console.log(data);
-      return this.http.post('http://comertec.herokuapp.com/adminClientes/actualizarCliente',data)
+      return this.http.post('https://comertec.herokuapp.com/adminClientes/actualizarCliente',data)
     }
     eliminarCliente(data: any): Observable<any> {
       console.log(data);
-      return this.http.post('http://comertec.herokuapp.com/adminClientes/eliminarCliente',data)
+      return this.http.post('https://comertec.herokuapp.com/adminClientes/eliminarCliente',data)
     }
     pedidosCliente(): Observable<any> {
-      const data = this.http.get('http://comertec.herokuapp.com/adminClientes/obtenerHistorial');
+      const data = this.http.get('https://comertec.herokuapp.com/adminClientes/obtenerHistorial');
 
       return data
     }
     getAlimentos(): Observable<any> {
-      const data = this.http.get('http://comertec.herokuapp.com/adminAlimentos/obtenerAlimentos');
+      const data = this.http.get('https://comertec.herokuapp.com/adminAlimentos/obtenerAlimentos');
 
       return data
 
     }
     modificarTiempo(data: any): Observable<any> {
-      return this.http.post('http://comertec.herokuapp.com/adminAlimentos/modificarTiempo',data);
+      return this.http.post('https://comertec.herokuapp.com/adminAlimentos/modificarTiempo',data);
     }
     eliminarPedido(data: any): Observable<any> {
       console.log(data);
-      return this.http.post('http://comertec.herokuapp.com/adminPedidos/eliminarPedido',data)
+      return this.http.post('https://comertec.herokuapp.com/adminPedidos/eliminarPedido',data)
     }
     actualizarPedido(data: any): Observable<any> {
       console.log(data);
-      return this.http.post('http://comertec.herokuapp.com/adminPedidos/actualizarPedido',data)
+      return this.http.post('https://comertec.herokuapp.com/adminPedidos/actualizarPedido',data)
     }
     iniciarSesion(data: any): Observable<any> {
       console.log(data);
-      return this.http.post('http://comertec.herokuapp.com/client/login',data)
+      return this.http.post('https://comertec.herokuapp.com/client/login',data)
     }
     crearCuenta(data: any): Observable<any> {
       console.log(data);
-      return this.http.post('http://comertec.herokuapp.com/client/create',data)
+      return this.http.post('https://comertec.herokuapp.com/client/create',data)
     }
     obtenerCatalogo(): Observable<any> {
       console.log("Obteniendo catálogo...");
-      const data = this.http.get('http://comertec.herokuapp.com/client/catalog')
+      const data = this.http.get('https://comertec.herokuapp.com/client/catalog')
       console.log(data)
       return data
     }    
