@@ -55,12 +55,22 @@ import { Observable,Subject } from 'rxjs';
       return this.http.post('http://comertec.herokuapp.com/adminPedidos/actualizarPedido',data)
     }
     iniciarSesion(data: any): Observable<any> {
-      console.log("--->",data);
-      return this.http.get('http://comertec.herokuapp.com/client/login',data)
+      console.log(data);
+      return this.http.post('http://comertec.herokuapp.com/client/login',data)
     }
     crearCuenta(data: any): Observable<any> {
-      console.log("---create--------->",data);
+      console.log(data);
       return this.http.post('http://comertec.herokuapp.com/client/create',data)
+    }
+    obtenerCatalogo(): Observable<any> {
+      console.log("Obteniendo catálogo...");
+      const data = this.http.get('http://comertec.herokuapp.com/client/catalog')
+      console.log(data)
+      return data
+    }    
+
+    setUser(data: any) {
+      localStorage.setItem('user', JSON.stringify(data));
     }
 
 }

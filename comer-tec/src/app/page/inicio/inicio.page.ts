@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router, ActivatedRouteSnapshot } from '@angular/router';
 import { ApiserviceService } from 'src/app/apiservice.service';
 import { AlertController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -11,12 +11,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class InicioPage implements OnInit {
   registerForm: FormGroup;
+  data: any;
   constructor(
     private formBuilder: FormBuilder,
-    private route: Router,
+    private route: ActivatedRoute,
+    private router: Router,
     private service: ApiserviceService,
     public alertController: AlertController
-  ) { }
+  ) {  }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -25,14 +27,13 @@ export class InicioPage implements OnInit {
     });
   }
   back() {
-    this.route.navigate(['/']).then(() => {
+    this.router.navigate(['/']).then(() => {
       window.location.reload();
     });
   }
   carrito() {
-    this.route.navigate(['/carrito']).then(() => {
+    this.router.navigate(['/carrito']).then(() => {
       window.location.reload();
     });
   }
-
 }

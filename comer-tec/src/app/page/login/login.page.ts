@@ -11,6 +11,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginPage implements OnInit {
   registerForm: FormGroup;
+  private catalog: '';
+  private user: '';
   constructor(
     private formBuilder: FormBuilder,
     private route: Router,
@@ -19,6 +21,7 @@ export class LoginPage implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem('user'));
     this.registerForm = this.formBuilder.group({
       User: ['', Validators.required],
       Password: ['', Validators.required],
@@ -26,41 +29,72 @@ export class LoginPage implements OnInit {
   }
   crearCuenta() {
     this.route.navigate(['/crear-cuenta']).then(() => {
-      //lógica inicio de sesión
       window.location.reload();
     });
   }
   ingresar() {
-    this.service.iniciarSesion(this.registerForm.value).subscribe(async (data)=>{
-      if(data == true){
-        const alert = await this.alertController.create({
-          header: 'Creacion Correcta',
-          message: 'Datos insertados',
-          buttons: [
-            {
-              text: 'OK',
-              handler: (blah) => {
-                this.route.navigate(['/inicio']);
-              }
-            }
-          ]
-        });
-        await alert.present();
-      }else{ 
-        const alert = await this.alertController.create({
-          header: 'Creacion Fallida',
-          message: 'Porfavor verifique los datos',
-          buttons: [
-            {
-              text: 'OK',
-            }
-          ]
-        });
-        await alert.present();
-      }
-    });
-    /* this.route.navigate(['/inicio']).then(() => {
-      window.location.reload();
-    }); */
+    this.service
+      .iniciarSesion(this.registerForm.value)
+      .subscribe(async (data) => {
+        if (data.length == 0) {
+          console.log('data login: ', data);
+          const alert = await this.alertController.create({
+            header: 'Creacion Fallida',
+            message: 'Porfavor verifique los datos',
+            buttons: [
+              {
+                text: 'OK',
+              },
+            ],
+          });
+          await alert.present();
+        } else {
+          console.log('data login: ', data);
+          if (data[0].Admin == 0){
+            this.service.obtenerCatalogo().subscribe(async (response) => {
+              this.catalog = response;
+              console.log('data catalog:', this.catalog)
+            });
+            
+            let navigationExtras = {
+                queryParams: {
+                  User: JSON.stringify(data[0].User)
+                }
+              };
+            const alert = await this.alertController.create({
+              header: 'Inicio de Sesión Correcto',
+              message: 'Bienvenid@',
+              buttons: [
+                {
+                  text: 'OK',
+                  handler: (blah) => {
+                    this.route.navigate(['/inicio', {user: 2222}]);
+                  },
+                },
+              ],
+            });
+            await alert.present();
+          } else {
+            this.service.obtenerCatalogo().subscribe(async (response) => {
+              this.catalog = response;
+              console.log('data catalog:', this.catalog)
+            });
+            const alert = await this.alertController.create({
+              header: 'Inicio de Sesión Correcto',
+              message: 'Cuenta Administrativa',
+              buttons: [
+                {
+                  text: 'OK',
+                  handler: (blah) => {
+                    this.route.navigate(['/menu-admin', this.catalog]);
+                  },
+                },
+              ],
+            });
+            await alert.present();            
+          }
+          
+        }
+      });
   }
 }
