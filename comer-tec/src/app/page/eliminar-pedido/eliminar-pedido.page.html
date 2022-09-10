@@ -3,18 +3,19 @@
 
 <ion-content>
   <center>
-  <p></p>
-  
+    <p></p>
 
-<div [formGroup]="registerForm">
-  
-  <ion-input color="dark" expand="block" placeholder="Id del Pedido" class="button" formControlName="IdPedido" type="number" > </ion-input>
-  <p></p>
-  
 
-  <ion-button color="dark" expand="block" class="button" (click)="eliminar()">Eliminar</ion-button>
-</div>
-<ion-button color="dark" expand="block" class="button" (click)="back()">Salir</ion-button>
+    <div [formGroup]="registerForm">
 
-</center>
+      <ion-input color="dark" expand="block" placeholder="Id del Pedido" class="button" formControlName="IdPedido"
+        type="number"> </ion-input>
+      <p></p>
+
+
+      <ion-button color="dark" expand="block" class="button" (click)="eliminar()">Eliminar</ion-button>
+    </div>
+    <ion-button color="dark" expand="block" class="button" (click)="back()">Salir</ion-button>
+
+  </center>
 </ion-content>

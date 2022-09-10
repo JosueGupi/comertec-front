@@ -50,10 +50,7 @@ import { Observable,Subject } from 'rxjs';
       console.log(data);
       return this.http.post('https://comertec.herokuapp.com/adminPedidos/eliminarPedido',data)
     }
-    actualizarPedido(data: any): Observable<any> {
-      console.log(data);
-      return this.http.post('https://comertec.herokuapp.com/adminPedidos/actualizarPedido',data)
-    }
+    
     iniciarSesion(data: any): Observable<any> {
       console.log(data);
       return this.http.post('https://comertec.herokuapp.com/client/login',data)
@@ -90,6 +87,25 @@ import { Observable,Subject } from 'rxjs';
 
     setUser(data: any) {
       localStorage.setItem('user', JSON.stringify(data));
+    }
+    setIdPedido(data: any) {
+      localStorage.setItem('idPedido', JSON.stringify(data));
+    }
+    getAlimentosNuevos(data: any): Observable<any> {
+      console.log(data);
+      return this.http.post('https://comertec.herokuapp.com/adminPedidos/alimentosNuevos', data)
+    }
+    getAlimentosAgregados(data: any): Observable<any> {
+      console.log(data);
+      return this.http.post('https://comertec.herokuapp.com/adminPedidos/alimentosAgregados',data)
+    }
+    eliminarAlimentoPedido(data: any): Observable<any> {
+      console.log(data);
+      return this.http.post('https://comertec.herokuapp.com/adminPedidos/eliminarAlimentoPedido',data)
+    }
+    agregarAlimentoPedido(data: any): Observable<any> {
+      console.log(data);
+      return this.http.post('https://comertec.herokuapp.com/adminPedidos/agregarAlimentoPedido',data)
     }
 
 }
