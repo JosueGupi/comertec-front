@@ -26,7 +26,7 @@ export class CatalogComponent implements OnInit {
 
   getCarrito() {
     this.service
-      .obtenerCarrito({ idPersona: localStorage.getItem('user') })
+      .obtenerCarrito( { idPersona: JSON.parse(localStorage.getItem('user')) })
       .subscribe(async (response) => {
         this.carrito = response;
       });
@@ -40,7 +40,7 @@ export class CatalogComponent implements OnInit {
         cantidad: 1,
       })
       .subscribe(async (response) => {
-        this.catalog = response;
+        console.log(response)
       });
   }
 }

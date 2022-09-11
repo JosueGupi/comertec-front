@@ -1,38 +1,52 @@
 <ion-header> </ion-header>
-
 <ion-content>
   <ion-button fill="clear" (click)="inicio()">
     <ion-icon name="home" class="icon"></ion-icon>
   </ion-button>
   <center>
     <ion-title size="large" slot="end">CARRITO DE COMPRAS</ion-title>
-    <div class="list">
-      <ion-row>
-        <ion-col>
-          <div><ion-title size="small">Producto</ion-title></div>
-        </ion-col>
-        <ion-col>
-          <div><ion-title size="small">Precio</ion-title></div>
-        </ion-col>
-        <ion-col>
-          <div><ion-title size="small">Cantidad</ion-title></div>
-        </ion-col>
-        <ion-col>
-          <div><ion-title size="small">Subtotal</ion-title></div>
-        </ion-col>
-        <ion-col>
-          <div>
-            <ion-button fill="clear">
-              <ion-icon name="trash" class="icon-trash"></ion-icon>
-            </ion-button>
-          </div>
-        </ion-col>
-      </ion-row>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <table class="table table-striped table-dark">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+                <th>Eliminar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let alimento of carrito ">
+                <td>{{ alimento.Nombre }}</td>
+                <td>{{ alimento.Precio }}</td>
+                <td>{{ alimento.Cantidad }}</td>
+                <td>{{ alimento.Precio }}</td>
+                <td>
+                  <ion-button
+                    fill="clear"
+                    (click)="eliminarCarrito(alimento.idAlimento)"
+                  >
+                    <ion-icon name="trash" class="icon"></ion-icon>
+                  </ion-button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-    <ion-title size="small" slot="end">TOTAL ₡</ion-title>
+    <ion-title size="small" slot="end">TOTAL ₡ {{total}} </ion-title>
     <div class="ion-btn-content">
-      <ion-button color="dark" expand="block" class="button" (click)="comprar()">
-        CONFIRMAR COMPRA
+      <ion-button
+        color="dark"
+        expand="block"
+        class="button"
+        (click)="generarPedido()"
+      >
+        CONFIRMAR PEDIDO
       </ion-button>
     </div>
   </center>

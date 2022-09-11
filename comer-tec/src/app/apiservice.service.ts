@@ -70,8 +70,9 @@ import { Observable,Subject } from 'rxjs';
     }    
     insertCarrito(data: any): Observable<any> {
       console.log("Insertando en carrito...", data);
-      return this.http.post('https://comertec.herokuapp.com/client/insertShoppingCart', data)
-
+      const response = this.http.post('https://comertec.herokuapp.com/client/insertShoppingCart', data)
+      console.log('response carrito', response)
+      return response
     }
     deleteCarrito(data: any): Observable<any> {
       console.log("Eliminando en carrito...", data);
@@ -79,14 +80,16 @@ import { Observable,Subject } from 'rxjs';
     }
     obtenerCarrito(data: any): Observable<any> {
       console.log("Obteniendo carrito...", data);
-      try {
-        const response = this.http.get('https://comertec.herokuapp.com/client/getShoppingCart', data)
-        console.log('respuesta:', response)
-      } catch (error) {
-        console.log('ERROR!!!!', error)
-      }
-      return this.http.get('https://comertec.herokuapp.com/client/getShoppingCart', data)
-    }    
+      const response = this.http.post('https://comertec.herokuapp.com/client/getShoppingCart', data)
+      console.log(response)
+      return response
+    }  
+    generarPedido(data: any): Observable<any> {
+      console.log("Generando orden...", data);
+      const response =  this.http.post('https://comertec.herokuapp.com/client/generateOrder', data)
+      console.log('response',response)
+      return response
+    } 
 
     setUser(data: any) {
       localStorage.setItem('user', JSON.stringify(data));
