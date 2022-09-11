@@ -40,7 +40,9 @@ export class CarritoPage implements OnInit {
         this.carrito = response;
         for (var i in response) {
           this.total += parseInt(response[i].Precio);
-          console.log('response carrito: ' + response[0].Precio)
+          console.log('response carrito: ' + response[i])
+          var object = JSON.stringify(response[i])
+          console.log(object)
         }
       });
   }
@@ -62,8 +64,7 @@ export class CarritoPage implements OnInit {
         idPersona: JSON.parse(localStorage.getItem('user')),
       })
       .subscribe(async (response) => {
-        console.log('generarPedido', response )
-        //window.location.reload();
+        window.location.reload();
       });
   }
 }
