@@ -1,0 +1,40 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content>
+  <center>
+  <div [formGroup]="addForm">
+    <p></p>
+
+    <ion-item class="button">
+      <ion-label>Nombre </ion-label>
+      <ion-select placeholder="Select One" formControlName="IdAlimentoAgregar">
+        <ion-select-option *ngFor="let alimento of alimentosNuevos" value={{alimento.idAlimento}}>{{alimento.Nombre}}
+        </ion-select-option>
+
+      </ion-select>
+    </ion-item>
+    <p></p>
+    <ion-input color="dark" expand="block" placeholder="Cantidad" class="button" formControlName="Cantidad" type="number"></ion-input>
+    <p></p>
+    <ion-button color="dark" expand="block" class="button" (click)="agregar()">Agregar</ion-button>
+  </div>
+
+  <div [formGroup]="deleteForm">
+    <p></p>
+
+    <ion-item class="button">
+      <ion-label>Nombre </ion-label>
+      <ion-select placeholder="Select One" formControlName="IdAlimentoEliminar">
+        <ion-select-option *ngFor="let alimento of alimentosAgregados" value={{alimento.idAlimento}}>{{alimento.Nombre}}
+        </ion-select-option>
+
+      </ion-select>
+    </ion-item>
+    <p></p>
+    <ion-button color="dark" expand="block" class="button" (click)="borrar()">Borrar</ion-button>
+  </div>
+  <ion-button color="dark" expand="block" class="button" (click)="back()">Atras</ion-button>
+  </center>
+</ion-content>

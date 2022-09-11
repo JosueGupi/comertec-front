@@ -20,10 +20,7 @@ export class ModificarPedidoPage implements OnInit {
 
     ngOnInit() {
       this.registerForm = this.formBuilder.group({
-        IdPedido: ['', Validators.required],
-        IdPersona: ['', Validators.required],
-        IdPedidoxAlimento: ['', Validators.required],
-        Fecha: ['', Validators.required],
+        IdPedido: ['', Validators.required]
         
       });
     }
@@ -34,34 +31,10 @@ export class ModificarPedidoPage implements OnInit {
     }
 
     modificar(){
-      console.log(this.registerForm.value)
-      this.service.actualizarPedido(this.registerForm.value).subscribe(async (data)=>{
-        if(data == true){
-          const alert = await this.alertController.create({
-            header: 'Actulizacion Correcta',
-            message: 'Datos modificados',
-            buttons: [
-              {
-                text: 'OK',
-                handler: (blah) => {
-                  this.route.navigate(['/gestionar-pedidos']);
-                }
-              }
-            ]
-          });
-          await alert.present();
-        }else{ 
-          const alert = await this.alertController.create({
-            header: 'Modificacion Fallida',
-            message: 'Porfavor verifique los datos',
-            buttons: [
-              {
-                text: 'OK',
-              }
-            ]
-          });
-          await alert.present();
-        }
+      console.log(this.registerForm.value.IdPedido);
+      this.service.setIdPedido(this.registerForm.value.IdPedido)
+      this.route.navigate(['/editar-pedido']).then(() => {
+        window.location.reload();
       });
     }
 
