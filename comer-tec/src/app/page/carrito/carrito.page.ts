@@ -70,19 +70,37 @@ export class CarritoPage implements OnInit {
         idPersona: JSON.parse(localStorage.getItem('user')),
       })
       .subscribe(async (response) => {
-        const alert = await this.alertController.create({
-          header: 'Información',
-          message: 'Pedido Generado Correctamente. Por favor recibe su correo electrónico.',
-          buttons: [
-            {
-              text: 'OK',
-              handler: (blah) => {
-                window.location.reload();
+        console.log('response carrito: ', response)
+        if (response) {
+          const alert = await this.alertController.create({
+            header: 'Información',
+            message:
+              'Pedido Generado Correctamente. Por favor recibe su correo electrónico.',
+            buttons: [
+              {
+                text: 'OK',
+                handler: (blah) => {
+                  window.location.reload();
+                },
               },
-            },
-          ],
-        });
-        await alert.present();
+            ],
+          });
+          await alert.present();
+        } else {
+          const alert = await this.alertController.create({
+            header: 'Información',
+            message: 'Carrito Vacío.',
+            buttons: [
+              {
+                text: 'OK',
+                handler: (blah) => {
+                  window.location.reload();
+                },
+              },
+            ],
+          });
+          await alert.present();
+        }
       });
   }
 }
