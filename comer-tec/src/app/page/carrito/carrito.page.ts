@@ -38,6 +38,9 @@ export class CarritoPage implements OnInit {
       .obtenerCarrito({ idPersona: JSON.parse(localStorage.getItem('user')) })
       .subscribe(async (response) => {
         this.carrito = response;
+        for (var i in response) {
+          this.total += parseInt(response[i].Precio);
+        }
       });
   }
 
