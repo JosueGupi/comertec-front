@@ -39,7 +39,7 @@ export class CarritoPage implements OnInit {
       .subscribe(async (response) => {
         this.carrito = response;
         for (var i in response) {
-          this.total += parseInt(response[i].Precio);
+          this.total += parseInt(response[i].Precio) * parseInt(response[i].Cantidad);
         }
       });
   }
