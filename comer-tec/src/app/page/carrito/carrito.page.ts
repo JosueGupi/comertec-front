@@ -38,12 +38,6 @@ export class CarritoPage implements OnInit {
       .obtenerCarrito({ idPersona: JSON.parse(localStorage.getItem('user')) })
       .subscribe(async (response) => {
         this.carrito = response;
-        for (var i in response) {
-          this.total += parseInt(response[i].Precio);
-          console.log('response carrito: ' + response[i])
-          var object = JSON.stringify(response[i])
-          console.log(object)
-        }
       });
   }
 
@@ -54,7 +48,19 @@ export class CarritoPage implements OnInit {
         idAlimento: idAlimento,
       })
       .subscribe(async (response) => {
-        window.location.reload();
+        const alert = await this.alertController.create({
+          header: 'Información',
+          message: 'Producto Eliminado Correcto',
+          buttons: [
+            {
+              text: 'OK',
+              handler: (blah) => {
+                window.location.reload();
+              },
+            },
+          ],
+        });
+        await alert.present();
       });
   }
 
@@ -64,7 +70,19 @@ export class CarritoPage implements OnInit {
         idPersona: JSON.parse(localStorage.getItem('user')),
       })
       .subscribe(async (response) => {
-        window.location.reload();
+        const alert = await this.alertController.create({
+          header: 'Información',
+          message: 'Pedido Generado Correctamente. Por favor recibe su correo electrónico.',
+          buttons: [
+            {
+              text: 'OK',
+              handler: (blah) => {
+                window.location.reload();
+              },
+            },
+          ],
+        });
+        await alert.present();
       });
   }
 }

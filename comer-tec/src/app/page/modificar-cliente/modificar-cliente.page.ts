@@ -32,7 +32,7 @@ export class ModificarClientePage implements OnInit {
       });
     }
     back() {
-      this.route.navigate(['/gestion-alimentos']).then(() => {
+      this.route.navigate(['/gestion-clientes']).then(() => {
         window.location.reload();
       });
     }

@@ -23,7 +23,7 @@ export class EliminarClientePage implements OnInit {
       });
     }
     back() {
-      this.route.navigate(['/gestion-alimentos']).then(() => {
+      this.route.navigate(['/gestion-clientes']).then(() => {
         window.location.reload();
       });
     }

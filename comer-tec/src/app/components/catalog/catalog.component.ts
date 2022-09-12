@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiserviceService } from 'src/app/apiservice.service';
+import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-catalog',
@@ -11,7 +13,11 @@ export class CatalogComponent implements OnInit {
   catalog = '';
   carrito = '';
   qty = [];
-  constructor(private service: ApiserviceService) {}
+  constructor(
+    private service: ApiserviceService,
+    private route: Router,
+    public alertController: AlertController
+  ) {}
 
   ngOnInit() {
     this.getCatalog();
@@ -26,7 +32,7 @@ export class CatalogComponent implements OnInit {
 
   getCarrito() {
     this.service
-      .obtenerCarrito( { idPersona: JSON.parse(localStorage.getItem('user')) })
+      .obtenerCarrito({ idPersona: JSON.parse(localStorage.getItem('user')) })
       .subscribe(async (response) => {
         this.carrito = response;
       });
@@ -40,7 +46,19 @@ export class CatalogComponent implements OnInit {
         cantidad: 1,
       })
       .subscribe(async (response) => {
-        console.log(response)
+        const alert = await this.alertController.create({
+          header: 'Mensaje',
+          message: 'Alimento Insertado Correctamente',
+          buttons: [
+            {
+              text: 'OK',
+              handler: (blah) => {
+                window.location.reload();
+              },
+            },
+          ],
+        });
+        await alert.present();
       });
   }
 }
